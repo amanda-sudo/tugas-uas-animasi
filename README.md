@@ -1,2 +1,379 @@
 # tugas-uas-animasi
 project pembuatan animasi untuk tugas 
+
+
+float x, y, z;
+float size = 75;
+float M,K;
+float yoff= 0.0;
+void setup()
+{
+  size(1000,550);
+  frameRate(30);
+}
+void draw()
+{
+   int d;
+  d=second();
+     background(153,170,0+50*d,0);
+     fill(#606421);
+     rect(0,300,1000,250);
+    
+    //air terjun 
+stroke(#906022);
+fill(#906022);
+rect(300,0,200,985);
+//elipse
+stroke(#7CC7F5);
+strokeWeight(1);
+fill(3,160,225);
+rect(370,0,80,985);
+    
+//kolam
+fill(3,160,255);
+noStroke();
+ellipse(400,430,170,100);
+ellipse(430,430,220,120);
+ellipse(400,450,240,70);
+ellipse(400,470,260,100);
+ellipse(420,500,340,100);
+ellipse(420,460,300,100);
+noStroke();
+
+ //gelombang
+  strokeWeight(1);
+  fill(3,160,255);
+  beginShape();
+  fill(3,160,255);
+  beginShape();
+  float xoff = 0;
+  for (float x=0; x<= width; x += 10) {
+    float y = map(noise(xoff, yoff), 0, 1, 460, 410);
+    vertex(x, y);
+    xoff += 0.05;
+  }
+  yoff += 0.01;
+  vertex(width, height);
+  vertex(0, height);
+  endShape(CLOSE);
+
+//matahari
+fill(222+50*d,222,0);
+ellipse(900,70,100,100);
+//rumah up
+strokeWeight(1);
+  fill(#88898B);
+  quad(320,290-2*d,380,290-2*d,390,310-2*d,310,310-2*d);
+  //atap2
+  stroke(2);
+  triangle(360,280-2*d,380,310-2*d,340,310-2*d);
+  //jendela atap2
+  stroke(2);
+  rect(355,292-2*d,10,15);
+  line(355,299-2*d,365,299-2*d);
+   //atap3
+   stroke(2);
+  triangle(335,285-2*d,345,295-2*d,325,295-2*d);
+  rect(330,295-2*d,10,5);
+  //cerobong
+  stroke(2);
+  fill(#937403);
+  quad(345,280-2*d,350,280-2*d,350,290-2*d,345,290-2*d);
+  //dinding
+  stroke(2);
+  fill(#AF840C);
+  quad(315,310-2*d,385,310-2*d,385,340-2*d,315,340-2*d);
+  fill(#075EE5);
+  quad(340,310-2*d,380,310-2*d,380,340-2*d,340,340-2*d);
+  fill(#1CBC08);
+  quad(350,310-2*d,370,310-2*d,370,340-2*d,350,340-2*d);
+  //jendela1
+  fill(#CBC8B9);
+  rect(352.5,315-2*d,15,20);
+  line(352.5,325-2*d,367.5,325-2*d);
+  //jendela2
+  rect(318,320-2*d,7.5,10);
+  line(352.5,325-2*d,367.5,325-2*d);
+  //pintu
+  fill(#6C5A00);
+  rect(330,320-2*d,7.5,20);
+  rect(331,322-2*d,5.5,6);
+  rect(331,332-2*d,5.5,6);
+  ellipse(332,330-2*d,2.5,2.5);
+  //pondasi
+  fill(#88898B);
+  rect(315,340-2*d,70,5);
+ 
+  //talibalon
+  line(325,240-2*d,345,280-2*d);
+  line(305,240-2*d,345,280-2*d);
+  line(345,240-2*d,345,280-2*d);
+  line(365,240-2*d,345,280-2*d);
+  line(385,240-2*d,345,280-2*d);
+  //balon
+  fill(#FF0000);
+  ellipse(330,120-2*d,20,20);
+  fill(#00FFDF);
+  ellipse(335,130-2*d,20,20);
+  fill(#FFF700);
+  ellipse(330,140-2*d,20,20);
+  fill(#03FF00);
+  ellipse(335,150-2*d,20,20);
+  fill(#FF0080);
+  ellipse(330,160-2*d,20,20);
+  fill(#FF0000);
+  ellipse(335,170-2*d,20,20);
+  fill(#03FF00);
+  ellipse(330,180-2*d,20,20);
+  fill(#FFFFFF);
+  ellipse(335,190-2*d,20,20);
+  fill(#018E4B);
+  ellipse(325,200-2*d,20,20);
+  fill(#03FF00);
+  ellipse(330,210-2*d,20,20);
+  fill(#FF0000);
+  ellipse(325,220-2*d,20,20);
+  fill(#FFFFFF);
+  ellipse(330,230-2*d,20,20);
+  fill(#FF0080);
+  ellipse(325,240-2*d,20,20);
+ 
+  fill(#052CFF);
+  ellipse(295,130-2*d,20,20);
+  fill(#00FFDF);
+  ellipse(290,140-2*d,20,20);
+  fill(#03FF00);
+  ellipse(295,150-2*d,20,20);
+  fill(#9C12FA);
+  ellipse(290,160-2*d,20,20);
+  fill(#7C6402);
+  ellipse(295,170-2*d,20,20);
+  fill(#00FFDF);
+  ellipse(290,180-2*d,20,20);
+  fill(#052CFF);
+  ellipse(295,190-2*d,20,20);
+  fill(#FFF700);
+  ellipse(285,200-2*d,20,20);
+  fill(#FFFFFF);
+  ellipse(290,210-2*d,20,20);
+  fill(#FF0000);
+  ellipse(285,220-2*d,20,20);
+  fill(#052CFF);
+  ellipse(290,230-2*d,20,20);
+  fill(#110FCE);
+  ellipse(310,120-2*d,20,20);
+  fill(#FF0080);
+  ellipse(315,130-2*d,20,20);
+  fill(#052CFF);
+  ellipse(310,140-2*d,20,20);
+  fill(#0F38FA);
+  ellipse(315,150-2*d,20,20);
+  fill(#00FFDF);
+  ellipse(310,160-2*d,20,20);
+  fill(#03FF00);
+  ellipse(315,170-2*d,20,20);
+  fill(#110FCE);
+  ellipse(310,180-2*d,20,20);
+  fill(#052CFF);
+  ellipse(315,190-2*d,20,20);
+  fill(#110FCE);
+  ellipse(305,200-2*d,20,20);
+  fill(#FFF700);
+  ellipse(310,210-2*d,20,20);
+  fill(#FF0080);
+  ellipse(305,220-2*d,20,20);
+  fill(#7C6402);
+  ellipse(310,230-2*d,20,20);
+  fill(#110FCE);
+  ellipse(305,240-2*d,20,20);
+  fill(#FFF700);
+  ellipse(275,150-2*d,20,20);
+  fill(#052CFF);
+  ellipse(270,160-2*d,20,20);
+  fill(#FF0080);
+  ellipse(275,170-2*d,20,20);
+  fill(#FFF700);
+  ellipse(270,180-2*d,20,20);
+  fill(#052CFF);
+  ellipse(275,190-2*d,20,20);
+  fill(#03FF00);
+  ellipse(265,200-2*d,20,20);
+  fill(#FF0080);
+  ellipse(270,210-2*d,20,20);
+  fill(#FFF700);
+  ellipse(365,120-2*d,20,20);
+  fill(#9C12FA);
+  ellipse(370,130-2*d,20,20);
+  fill(#31CE0F);
+  ellipse(365,140-2*d,20,20);
+  fill(#7C6402);
+  ellipse(370,150-2*d,20,20);
+  fill(#FF0080);
+  ellipse(365,160-2*d,20,20);
+  fill(#03FF00);
+  ellipse(370,170-2*d,20,20);
+  fill(#31CE0F);
+  ellipse(365,180-2*d,20,20);
+  fill(#110FCE);
+  ellipse(370,190-2*d,20,20);
+  fill(#31CE0F);
+  ellipse(360,200-2*d,20,20);
+  fill(#FFF700);
+  ellipse(365,210-2*d,20,20);
+  fill(#110FCE);
+  ellipse(360,220-2*d,20,20);
+  fill(#00FFDF);
+  ellipse(365,230-2*d,20,20);
+  fill(#31CE0F);
+  ellipse(360,240-2*d,20,20);
+  fill(#110FCE);
+  ellipse(385,120-2*d,20,20);
+  fill(#FFF700);
+  ellipse(390,130-2*d,20,20);
+  fill(#FFF700);
+  ellipse(385,140-2*d,20,20);
+  fill(#FFFFFF);
+  ellipse(390,150-2*d,20,20);
+  fill(#110FCE);
+  ellipse(385,160-2*d,20,20);
+  fill(#31CE0F);
+  ellipse(390,170-2*d,20,20);
+  fill(#03FF00);
+  ellipse(385,180-2*d,20,20);
+  fill(#7C6402);
+  ellipse(390,190-2*d,20,20);
+  fill(#FF0000);
+  ellipse(380,200-2*d,20,20);
+  fill(#00FFDF);
+  ellipse(395,210-2*d,20,20);
+  fill(#052CFF);
+  ellipse(380,220-2*d,20,20);
+  fill(#03FF00);
+  ellipse(395,230-2*d,20,20);
+  fill(#110FCE);
+  ellipse(380,240-2*d,20,20);
+  fill(#7C6402);
+  ellipse(405,140-2*d,20,20);
+  fill(#110FCE);
+  ellipse(410,150-2*d,20,20);
+  fill(#03FF00);
+  ellipse(405,160-2*d,20,20);
+  fill(#110FCE);
+  ellipse(410,170-2*d,20,20);
+  fill(#FFF700);
+  ellipse(405,180-2*d,20,20);
+  fill(#FFF700);
+  ellipse(410,190-2*d,20,20);
+  fill(#9C12FA);
+  ellipse(400,200-2*d,20,20);
+  fill(#FFFFFF);
+  ellipse(415,210-2*d,20,20);
+  fill(#03FF00);
+  ellipse(400,220-2*d,20,20);
+  fill(#7C6402);
+  ellipse(345,120-2*d,20,20);
+  fill(#110FCE);
+  ellipse(350,130-2*d,20,20);
+  fill(#9C12FA);
+  ellipse(345,140-2*d,20,20);
+  fill(#110FCE);
+  ellipse(350,150-2*d,20,20);
+  fill(#7C6402);
+  ellipse(345,160-2*d,20,20);
+  fill(#052CFF);
+  ellipse(350,170-2*d,20,20);
+  fill(#FFFFFF);
+  ellipse(345,180-2*d,20,20);
+  fill(#FF0080);
+  ellipse(350,190-2*d,20,20);
+  fill(#FF0000);
+  ellipse(340,200-2*d,20,20);
+  fill(#03FF00);
+  ellipse(345,210-2*d,20,20);
+  fill(#FFF700);
+  ellipse(340,220-2*d,20,20);
+  fill(#00FFDF);
+  ellipse(345,230-2*d,20,20);
+  fill(#FF0000);
+  ellipse(340,240-2*d,20,20);
+//rumah
+  fill(255,0,255);
+triangle(155,350,125,375,185,375);
+fill(20,100,200);
+rect(125,375,60,30);
+fill(0,100,0);
+arc(120,405,30,50,(180*PI)/180,(0*PI)/180);
+fill(0+50*d,250,250);
+rect(140,375,15,10);
+fill(#F0C330);
+triangle(165,415,225,415,195,390);
+fill(20,100,200);
+rect(165,415,60,30);
+fill(0,100,0);
+arc(120,405,30,50,(180*PI)/180,(0*PI)/180);
+fill(0+50*d,250,250);
+rect(170,415,15,10);
+fill(#F70A0A);
+triangle(700,340,800,340,750,290);
+fill(20,100,200);
+rect(700,340,100,100);
+fill(0,100,0);
+arc(120,405,30,50,(180*PI)/180,(0*PI)/180);
+fill(0+50*d,250,250);
+rect(740,390,15,50);
+rect(760,380,15,10);
+noStroke();
+fill(200,100,0);
+triangle(120,320,90,340,150,340);
+fill(200,0,0);
+rect(100,340,40,20);
+//pohon
+fill(#369820);
+triangle(850,350,890,350,870,320);
+triangle(850,370,890,370,870,340);
+triangle(850,390,890,390,870,360);
+fill(#293E25);
+rect(865,390,10,20);
+fill(#369820);
+triangle(800,350,840,350,820,320);
+triangle(800,370,840,370,820,340);
+triangle(800,390,840,390,820,360);
+fill(#293E25);
+rect(815,390,10,20);
+fill(#369820);
+triangle(600,350,640,350,620,320);
+triangle(600,370,640,370,620,340);
+triangle(600,390,640,390,620,360);
+fill(#293E25);
+rect(615,390,10,20);
+fill(#369820);
+triangle(550,350,590,350,570,320);
+triangle(550,370,590,370,570,340);
+triangle(550,390,590,390,570,360);
+fill(#293E25);
+rect(565,390,10,20);
+fill(#369820);
+triangle(500,350,540,350,520,320);
+triangle(500,370,540,370,520,340);
+triangle(500,390,540,390,520,360);
+fill(#293E25);
+rect(515,390,10,20);
+
+
+//awan
+    y = y + 0.8;
+  translate(y-200, height/2-2* size/2);
+fill(#E8EFF5);
+ellipse(450,-50,70,45);
+ellipse(500,-50,85,65);
+ellipse(540,-50,70,35);
+ellipse(700,-100,80,50);
+ellipse(750,-100,95,75);
+ellipse(780,-100,80,55);
+ellipse(815,-100,75,40);
+ellipse(250,-100,80,35);
+ellipse(300,-100,80,45);
+
+   
+
+}
