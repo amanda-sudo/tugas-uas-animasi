@@ -29,7 +29,7 @@ strokeWeight(1);
 fill(3,160,225);
 rect(370,0,80,985);
     
-//kolam
+  //kolam
 fill(3,160,255);
 noStroke();
 ellipse(400,430,170,100);
